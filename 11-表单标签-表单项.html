@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- input 的type属性：
+    text：文本输入框
+    password：密码输入框
+    submit：提交按钮
+    button：按钮
+    radio：单选框
+    checkbox：复选框
+    select：下拉框
+    file：文件上传
+    hidden：隐藏域
+    date：日期选择器
+    time：时间选择器
+    datetime-local：日期和时间选择器
+    month：月份选择器
+    week：周选择器
+    email：邮箱输入框
+    url：网址输入框
+    number：数字输入框
+    image：图片上传按钮
+    reset：重置按钮
+ -->
+
+ <!-- select 标签：
+  select标签用于定义下拉列表，select标签的子标签为option标签，option标签的value属性用于指定选项的值，option标签的selected属性用于指定默认选中的选项。
+  select标签的multiple属性用于指定是否允许多选，multiple属性的值为true时，select标签的size属性用于指定下拉列表的行数，size属性的值为数字时，select标签的size属性用于指定下拉列表的行数，size属性的值为auto时，select标签的size属性用于指定下拉列表的行
+ -->
+  <!-- textarea ：文本域标签，用于定义多行文本输入框，textarea标签的cols属性用于指定文本域的列数，textarea标签的rows属性用于指定文本域的行数，textarea标签的value属性用于指定文本域的默认值，textarea标签的wrap属性用于指定文本域的换行方式，textarea标签的wrap属性的值为soft时，文本域的换行方式为自动换行 -->
+
+  <form action="/save" method="post">
+    姓名：<input type="text" name="username">
+    性别：<input type="radio" name="sex" value="1">男
+    <!-- 使用label标签 包裹单选标签，可以实现点击文字也能选中的效果 -->
+    <label><input type="radio" name="sex" value="2">女</input></label>
+    兴趣爱好：<input type="checkbox" name="hobby" value="1">吃饭
+    <input type="checkbox" name="hobby" value="2">睡觉
+    <input type="checkbox" name="hobby" value="3">打游戏</input>
+
+    城市：<select name="city">
+          <option value="1">北京</option>
+          <option value="2">上海</option>
+          <option value="3">广州</option>
+        </select>
+    
+    <input type="submit" value="提交"></input>
+  </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

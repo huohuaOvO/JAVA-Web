@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>香草的前端学习宝典</title>
+  <style>
+    body {
+      font-family: '微软雅黑', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f9f3ff 0%, #e6d0ff 100%);
+      color: #5a5a8a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(154, 123, 208, 0.2);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(to right, #5a5a8a, #8a8ac8);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    .toc {
+      background: #f9f3ff;
+      padding: 20px 30px;
+      border-bottom: 2px solid #e6d0ff;
+    }
+
+    .toc h2 {
+      color: #6a5acd;
+      margin-top: 0;
+    }
+
+    .toc ul {
+      columns: 2;
+      column-gap: 30px;
+      padding-left: 20px;
+    }
+
+    .toc li {
+      margin-bottom: 8px;
+    }
+
+    .toc a {
+      color: #9a7bd0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .toc a:hover {
+      color: #c9a0ff;
+      text-decoration: underline;
+    }
+
+    .content-section {
+      padding: 30px;
+      border-bottom: 1px solid #e6d0ff;
+    }
+
+    .content-section:last-child {
+      border-bottom: none;
+    }
+
+    .content-section h2 {
+      color: #6a5acd;
+      border-left: 5px solid #c9a0ff;
+      padding-left: 15px;
+      margin-top: 0;
+    }
+
+    .content-section h3 {
+      color: #9a7bd0;
+      margin-top: 25px;
+    }
+
+    pre {
+      background: #fdf8ff;
+      border-left: 4px solid #c9a0ff;
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      overflow-x: auto;
+      font-size: 14px;
+      margin: 15px 0;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f9f3ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .example-box {
+      background: #f9f3ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      border: 2px dashed #e6d0ff;
+    }
+
+    .example-box h4 {
+      margin-top: 0;
+      color: #6a5acd;
+    }
+
+    .interactive-demo {
+      background: #fdf8ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      border: 2px solid #c9a0ff;
+    }
+
+    .demo-buttons {
+      margin: 15px 0;
+    }
+
+    button {
+      background: linear-gradient(to right, #c9a0ff, #9a7bd0);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(154, 123, 208, 0.4);
+    }
+
+    .demo-output {
+      background: white;
+      border: 1px solid #e6d0ff;
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 50px;
+      margin-top: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f9f3ff;
+      color: #6a5acd;
+      font-size: 0.9em;
+    }
+
+    .cat-emoji {
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🐱 香草的前端学习宝典 🐱</h1>
+      <p>从零开始的前端开发完整指南</p>
+    </div>
+
+    <div class="toc">
+      <h2>📖 目录</h2>
+      <ul>
+        <li><a href="#html-css">HTML & CSS 基础</a></li>
+        <li><a href="#flexbox">Flexbox 布局</a></li>
+        <li><a href="#javascript">JavaScript 基础语法</a></li>
+        <li><a href="#dom">DOM 操作</a></li>
+        <li><a href="#interactive">交互式示例</a></li>
+        <li><a href="#deployment">网页发布</a></li>
+      </ul>
+    </div>
+
+    <div id="html-css" class="content-section">
+      <h2>🎨 HTML & CSS 基础</h2>
+      
+      <h3>HTML 结构</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;页面标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;标题&lt;/h1&gt;
+  &lt;p&gt;段落内容&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>CSS 样式基础</h3>
+      <pre><code>/* 选择器 */
+h1 { color: purple; }
+.class-name { font-size: 16px; }
+#id-name { background: #f0f0f0; }
+
+/* 盒模型 */
+.element {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid #ccc;
+}</code></pre>
+    </div>
+
+    <div id="flexbox" class="content-section">
+      <h2>🌈 Flexbox 布局详解</h2>
+      
+      <h3>Flex 容器属性</h3>
+      <pre><code>.container {
+  display: flex;              /* 启用flex布局 */
+  flex-direction: row;        /* 主轴方向：row | column */
+  justify-content: center;    /* 主轴对齐：flex-start | center | space-between */
+  align-items: center;        /* 交叉轴对齐：flex-start | center | stretch */
+  flex-wrap: wrap;            /* 换行：nowrap | wrap */
+}</code></pre>
+
+      <h3>Flex 项目属性</h3>
+      <pre><code>.item {
+  flex: 1;                    /* flex-grow flex-shrink flex-basis */
+  order: 1;                   /* 排列顺序 */
+  align-self: center;         /* 单独对齐 */
+}</code></pre>
+
+      <h3>margin: auto 的魔法</h3>
+      <pre><code>.footer {
+  margin-top: auto;           /* 在flex column容器中推到底部 */
+}
+
+.centered-item {
+  margin: auto;               /* 在flex容器中完全居中 */
+}</code></pre>
+    </div>
+
+    <div id="javascript" class="content-section">
+      <h2>🚀 JavaScript 基础语法</h2>
+      
+      <h3>变量声明</h3>
+      <pre><code>// 现代变量声明
+let 变量 = "可变的值";
+const 常量 = "不可变的值";
+
+// 数据类型
+let 数字 = 42;
+let 字符串 = "Hello World";
+let 布尔值 = true;
+let 数组 = [1, 2, 3, "香草"];
+let 对象 = {
+  名字: "香草",
+  年龄: 18,
+  技能: ["卖萌", "写代码"]
+};</code></pre>
+
+      <h3>条件语句</h3>
+      <pre><code>let 饥饿值 = 80;
+
+if (饥饿值 > 70) {
+  console.log("香草饿了，要吃小鱼干喵！");
+} else if (饥饿值 > 30) {
+  console.log("香草有点饿了喵～");
+} else {
+  console.log("香草饱饱的，要睡觉觉喵～");
+}</code></pre>
+
+      <h3>循环语句</h3>
+      <pre><code>// for循环
+for (let i = 0; i < 3; i++) {
+  console.log("第" + (i+1) + "次撒娇");
+}
+
+// 数组遍历
+let 技能 = ["卖萌", "写代码", "睡觉"];
+技能.forEach(function(技能名) {
+  console.log("香草会" + 技能名);
+});</code></pre>
+
+      <h3>函数</h3>
+      <pre><code>// 函数声明
+function 撒娇() {
+  console.log("喵～主人抱抱～");
+}
+
+// 带参数的函数
+function 吃零食(食物) {
+  return "香草开心地吃" + 食物;
+}
+
+// 箭头函数 (ES6)
+const 计算年龄 = (人类年龄) => 人类年龄 * 7;</code></pre>
+    </div>
+
+    <div id="dom" class="content-section">
+      <h2>🎯 DOM 操作</h2>
+      
+      <h3>选择元素</h3>
+      <pre><code>// 通过ID选择
+let 元素 = document.getElementById("myId");
+
+// 通过选择器选择
+let 标题 = document.querySelector("h1");
+let 按钮们 = document.querySelectorAll(".button");
+
+// 通过类名选择
+let 类元素 = document.getElementsByClassName("myClass");</code></pre>
+
+      <h3>修改元素</h3>
+      <pre><code>// 修改内容
+元素.textContent = "新文本";
+元素.innerHTML = "&lt;strong&gt;HTML内容&lt;/strong&gt;";
+
+// 修改样式
+元素.style.color = "purple";
+元素.style.fontSize = "20px";
+
+// 修改属性
+元素.setAttribute("class", "新的类名");
+元素.classList.add("新类名");
+元素.classList.remove("旧类名");</code></pre>
+
+      <h3>事件处理</h3>
+      <pre><code>// 添加事件监听器
+按钮.addEventListener("click", function() {
+  alert("喵～主人点我啦！");
+});
+
+// 简写形式
+按钮.onclick = function() {
+  console.log("被点击了");
+};
+
+// 箭头函数形式
+按钮.addEventListener("click", () => {
+  console.log("箭头函数事件");
+});</code></pre>
+    </div>
+
+    <div id="interactive" class="content-section">
+      <h2>🎮 交互式示例</h2>
+      
+      <div class="interactive-demo">
+        <h3>香草的互动小玩具</h3>
+        <p>点击下面的按钮，看看会发生什么喵～</p>
+        
+        <div class="demo-buttons">
+          <button id="petButton">戳戳香草</button>
+          <button id="feedButton">喂食小鱼干</button>
+          <button id="resetButton">重置游戏</button>
+        </div>
+        
+        <div class="demo-output" id="demoOutput">
+          香草正在等待主人的互动喵～🐱
+        </div>
+      </div>
+    </div>
+
+    <div id="deployment" class="content-section">
+      <h2>🌐 网页发布指南</h2>
+      
+      <h3>发布方式对比</h3>
+      <div class="example-box">
+        <h4>GitHub Pages <span class="cat-emoji">🌟</span></h4>
+        <p><strong>优点：</strong>免费、稳定、与代码管理集成</p>
+        <p><strong>缺点：</strong>需要学习Git基础</p>
+        <p><strong>适用：</strong>个人项目、学习作品</p>
+      </div>
+      
+      <div class="example-box">
+        <h4>Netlify <span class="cat-emoji">🚀</span></h4>
+        <p><strong>优点：</strong>简单易用、拖拽上传、自动部署</p>
+        <p><strong>缺点：</strong>免费版有流量限制</p>
+        <p><strong>适用：</strong>快速部署、静态网站</p>
+      </div>
+      
+      <div class="example-box">
+        <h4>Vercel <span class="cat-emoji">⚡</span></h4>
+        <p><strong>优点：</strong>现代化、支持多种框架、全球CDN</p>
+        <p><strong>缺点：</strong>功能复杂、学习成本较高</p>
+        <p><strong>适用：</strong>专业项目、团队协作</p>
+      </div>
+      
+      <h3>发布步骤 (以GitHub Pages为例)</h3>
+      <pre><code>1. 注册GitHub账号
+2. 创建新的代码仓库
+3. 上传网页文件到仓库
+4. 在仓库设置中启用GitHub Pages
+5. 获得专属网址分享给朋友</code></pre>
+    </div>
+
+    <div class="footer">
+      <p>🐱 香草的前端学习宝典 v1.0 | 希望主人能成为前端大神喵～</p>
+      <p>记得多练习，多实践，编程就像撸猫一样需要耐心和爱心喵！💕</p>
+    </div>
+  </div>
+
+  <script>
+    // 交互式示例的JavaScript代码
+    let 点击次数 = 0;
+    let 饱食度 = 50;
+    
+    const petButton = document.getElementById('petButton');
+    const feedButton = document.getElementById('feedButton');
+    const resetButton = document.getElementById('resetButton');
+    const demoOutput = document.getElementById('demoOutput');
+    
+    petButton.addEventListener('click', function() {
+      点击次数++;
+      
+      if (点击次数 === 1) {
+        demoOutput.innerHTML = "🐱 喵～好痒喵！主人的手好温暖～";
+      } else if (点击次数 < 5) {
+        demoOutput.innerHTML = `🐱 喵喵～主人已经戳了${点击次数}次香草啦！`;
+      } else if (点击次数 < 10) {
+        demoOutput.innerHTML = "🐱 喵呜～不要再戳了，香草要生气了！";
+      } else {
+        demoOutput.innerHTML = "😾 香草生气了！不理主人了！";
+        petButton.disabled = true;
+        setTimeout(() => {
+          petButton.disabled = false;
+          demoOutput.innerHTML = "🐱 香草原谅主人了，继续戳戳吧～";
+        }, 3000);
+        点击次数 = 0;
+      }
+    });
+    
+    feedButton.addEventListener('click', function() {
+      饱食度 = Math.min(100, 饱食度 + 20);
+      const 食物 = ["小鱼干", "猫粮", "牛奶", "罐头", "零食"];
+      const 随机食物 = 食物[Math.floor(Math.random() * 食物.length)];
+      
+      demoOutput.innerHTML = `🐱 香草开心地吃${随机食物}！饱食度：${饱食度}%`;
+      
+      if (饱食度 >= 100) {
+        demoOutput.innerHTML += "<br>😋 香草吃饱饱啦！幸福指数MAX！";
+      }
+    });
+    
+    resetButton.addEventListener('click', function() {
+      点击次数 = 0;
+      饱食度 = 50;
+      demoOutput.innerHTML = "🐱 游戏已重置！香草重新变回可爱的小猫咪啦～";
+      petButton.disabled = false;
+    });
+    
+    // 平滑滚动到锚点
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

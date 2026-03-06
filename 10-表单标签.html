@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- from表单标签：
+    action：表单提交到的地址
+    method(表单提交方式)：
+            get(默认)：表单数据会被拼接在url后面
+              特点：
+              1.如果表单中包含了隐私信息，get方式并不安全
+              2.数据长度有限制，不适合提交大数据量的表单
+            post：表单数据不会被拼接在url后面
+              特点：
+              1.不会将敏感信息暴露在url中（安全）
+              2.数据长度没有限制，适合提交大数据量表单
+    name：表单项的name属性，用于获取表单数据 
+    注意：表单项要想采集数据，必须给表单项设置name属性
+   -->
+  <form action="/save" method="post">
+    姓名：<input type="text" name="username">
+    密码：<input type="password" name="password">
+    <input type="submit" value="提交"></input>
+  </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

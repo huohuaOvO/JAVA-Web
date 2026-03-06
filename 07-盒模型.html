@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>盒模型展示</title>
+  <style>
+    div{
+      background-color: bisque;
+      /* 宽度和高度都是"内容"部分的 */
+      width: 400px;
+      height: 300px;
+      /* 所以设置padding属性后，原来的“容器”的宽高会改变 */
+      padding: 30px;
+      /* 如果再设置box-sizing属性为border-box，那么“容器”的宽高会改变为“内容”的宽高加上padding和border的宽高 */
+      /* 也就是说“内容”的宽高现在为340px和240px */
+      box-sizing: border-box;
+      /* border和padding和content都属于内部的，所以这里设置完以后，content的宽高又被进一步压缩 */
+      border: 20px solid red;
+      /* 设置完外边距后，原来的“容器”的宽高被拓展了 */
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    文字文字文字文字文字文字文字文字文字文字文字文字文字文字 文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tails智能辅助学习系统</title>
+  <style>
+
+    body {
+      display: flex;
+      flex-direction: column; /* 变成竖着的小树喵 */
+      align-items: center; /* 所有孩子都居中站好喵 */
+      margin: 0;
+      padding-top: 20px; /* 给头顶留点呼吸空间喵 */
+    }
+
+    .top-navbar{
+      position: relative; /* 解除封印喵 */
+      top: 0;
+      z-index: 100; /* 站在云朵上喵 */
+      background: linear-gradient(to right, #5a5a8a, #8a8ac8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      width: 70%;
+      max-width: 1200px;
+      height: 70px;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin: 0 auto; /* 自动居中魔法喵～ */
+    }
+    .top-navbar h1{
+      color: #fff;
+      margin: 0;
+      font-family: '楷体', cursive;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 文字立体感喵 */
+      letter-spacing: 1px; /* 字母更舒展喵 */
+    }
+
+    .top-navbar a{
+      color: #ffebf7; /* 粉白更可爱喵 */
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15); /* 透明泡泡效果喵 */
+      transition: all 0.3s ease;
+    }
+
+    .top-navbar a:hover {
+      background: rgba(255,255,255,0.3); /* 鼠标放上会发光喵 */
+      transform: translateY(-2px);
+    }
+    /* 新增的软萌样式喵～ */
+    .search-from {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: 70%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f3ff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .input-group {
+      display: flex;
+      flex-direction: column-reverse; /* 让标签在下面喵～ */
+      width: 200px;
+    }
+    
+    .input-group label {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #6a5acd;
+      font-weight: 500;
+    }
+    
+    .input-group input,
+    .input-group select {
+      padding: 10px;
+      border: 2px solid #e6d0ff;
+      border-radius: 8px;
+      background: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: #c9a0ff;
+      outline: none;
+      box-shadow: 0 0 8px #e0c3ff;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    input[type="submit"], 
+    input[type="reset"] {
+      padding: 10px 20px;
+      background: linear-gradient(to right, #c9a0ff, #9a7bd0);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+    
+    input[type="submit"]:hover, 
+    input[type="reset"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(154, 123, 208, 0.4);
+    }
+
+    /* 表格整体样式 */
+    table {
+      width: 70%;
+      max-width: 1200px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fdf8ff;
+      /* 圆角 */
+      border-radius: 12px;
+      /* 控制超出部分的显示 */
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(154, 123, 208, 0.15);
+    }
+
+    /* 表头样式 */
+    thead {
+      background: linear-gradient(to right, #c9a0ff, #9a7bd0);
+    }
+
+    th {
+      padding: 15px 10px;
+      color: white;
+      font-weight: bold;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    /* 表格主体 */
+    tbody tr {
+      border-bottom: 1px solid #e6d0ff;
+      transition: all 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background-color: #f5edff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(154, 123, 208, 0.2);
+    }
+
+    td {
+      padding: 12px 10px;
+      color: #5a5a8a;
+      font-size: 14px;
+    }
+
+    /* 头像图片样式 */
+    td img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0c3ff;
+    }
+
+    /* 操作链接样式 */
+    td a {
+      color: #9a7bd0;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 15px;
+      background: rgba(154, 123, 208, 0.1);
+      transition: all 0.3s ease;
+      margin-right: 5px;
+    }
+
+    td a:hover {
+      background: rgba(154, 123, 208, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="top-navbar">
+    <h1>✨Tails智能辅助学习系统✨</h1> <!-- 加了小星星喵 -->
+    <a href="#">退出登录</a>
+  </div>
+
+  <!-- 香草重新排布的表单喵～ -->
+  <form class="search-from">
+    <div class="input-group">
+      <input type="text" name="name" placeholder="请输入姓名">
+      <label for="name">姓名</label>
+    </div>
+    
+    <div class="input-group">
+      <select name="gender" id="gender">
+        <option value="">请选择性别</option>
+        <option value="male">男</option>
+        <option value="female">女</option>
+      </select>
+      <label for="gender">性别</label>
+    </div>
+    
+    <div class="input-group">
+      <select name="position" id="position">
+        <option value="">请选择职位</option>
+        <option value="班主任">班主任</option>
+        <option value="讲师">讲师</option>
+        <option value="学工主管">学工主管</option>
+        <option value="教研主管">教研主管</option>
+        <option value="咨询师">咨询师</option>
+      </select>
+      <!-- label的for属性与select的id属性关联起来，可以实现点击label时，select被选中 -->
+      <label for="position">职位</label>
+    </div>
+    
+    <div class="button-group">
+      <input type="submit" value="搜索">
+      <input type="reset" value="重置">
+    </div>
+  </form>
+
+  <table>
+    <!-- 表头 -->
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>头像</th>
+        <th>职位</th>
+        <th>入职时间</th>
+        <th>最后操作时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <!-- 表体 -->
+    <tbody>
+      <tr>
+          <td>小王</td>
+          <td>男</td>
+          <td><img src="https://picsum.photos/id/237/200/300" alt=""></td>
+          <td>班主任</td>
+          <td>2023-01-01</td>
+          <td>2023-01-01</td>
+          <td>
+            <a href="#">查看</a>
+            <a href="#">编辑</a>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td>小明</td>
+          <td>男</td>
+          <td><img src="https://picsum.photos/id/237/200/300" alt=""></td>
+          <td>讲师</td>
+          <td>2024-01-01</td>
+          <td>2025-01-01</td>
+          <td>
+            <a href="#">编辑</a>
+          </td>
+          </td>
+        </tr>
+
+        <tr>
+          <td>小李</td>
+          <td>女</td>
+          <td><img src="https://picsum.photos/id/237/200/300" alt=""></td>
+          <td>学工主管</td>
+          <td>2025-01-01</td>
+          <td>2026-01-01</td>
+          <td>
+            <a href="#">查看</a>
+          </td>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</body>
+</html>
